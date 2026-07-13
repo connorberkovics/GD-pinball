@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://brrlfben8qaf8"]
+
+[ext_resource type="Script" uid="uid://megn3mjhmdhk" path="res://Scripts/flipper.gd" id="1_8a8ck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(128, 16)
+
+[node name="Flipper" type="RigidBody2D" unique_id=1775082987]
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_8a8ck")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1496412788]
+offset_top = -8.0
+offset_right = 128.0
+offset_bottom = 8.0
+color = Color(0.2925, 0.2925, 0.75, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56003389]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_bhunq")
