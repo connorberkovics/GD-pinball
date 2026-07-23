@@ -10,6 +10,7 @@ script = ExtResource("1_sojga")
 
 [node name="LeftFlipper" type="RigidBody2D" parent="." unique_id=1662137882]
 position = Vector2(-192, 0)
+rotation = 0.2618125
 freeze = true
 freeze_mode = 1
 metadata/_edit_group_ = true
@@ -26,6 +27,7 @@ shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="RightFlipper" type="RigidBody2D" parent="." unique_id=10985071]
 position = Vector2(192, 0)
+rotation = -0.2617994
 freeze = true
 freeze_mode = 1
 metadata/_edit_group_ = true

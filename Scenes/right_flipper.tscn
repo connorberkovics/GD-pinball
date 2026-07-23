@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7c3xgx5al7fv"]
+
+[ext_resource type="Script" uid="uid://cltogj3fkguym" path="res://Scripts/right_flipper.gd" id="1_avtio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbrvp"]
+size = Vector2(128, 16)
+
+[node name="RightFlipper" type="RigidBody2D" unique_id=302824521]
+script = ExtResource("1_avtio")
+direction = 1.0
+flip_input_action = "right_flipper"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1160241834]
+offset_left = -128.0
+offset_top = -8.0
+offset_bottom = 8.0
+color = Color(0, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=135512471]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_dbrvp")

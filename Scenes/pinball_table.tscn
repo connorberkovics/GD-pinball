@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://ck6vnlx7f7mnh"]
 
-[ext_resource type="PackedScene" uid="uid://cfn7oc8tel2iy" path="res://Scenes/flipper_scene.tscn" id="1_h6ha7"]
+[ext_resource type="PackedScene" uid="uid://ddxhei63ah51x" path="res://Scenes/left_flipper.tscn" id="1_m4si6"]
+[ext_resource type="PackedScene" uid="uid://c7c3xgx5al7fv" path="res://Scenes/right_flipper.tscn" id="2_je4ao"]
 
 [node name="PinballTable" type="Node2D" unique_id=538549802]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2045938440]
 position = Vector2(0, -319)
 
-[node name="FlipperManager" parent="." unique_id=1968591727 instance=ExtResource("1_h6ha7")]
+[node name="LeftFlipper" parent="." unique_id=302824521 instance=ExtResource("1_m4si6")]
+position = Vector2(-192, 0)
+rotation = 0.17453292
+
+[node name="RightFlipper" parent="." unique_id=893228446 instance=ExtResource("2_je4ao")]
+position = Vector2(192, 0)
+rotation = -0.17453292

@@ -2,36 +2,43 @@ extends RigidBody2D
 class_name Flipper
 
 
-@export var flip_degrees: float = 45.0
-@export var flip_force: float = 700.0
+@export_range(-1.0, 1.0, 2.0) var direction: float = -1.0
+@export var flip_degrees: float = 50.0
+@export var flip_speed: float = 800.0
+@export var flip_input_action: String = ""
 
-@onready var start_angle := rotation_degrees
-@onready var target_angle := start_angle - flip_degrees
+@onready var start_rotation := rotation_degrees
+@onready var target_rotation := rotation_degrees + flip_degrees * direction
+
+
+func _ready() -> void:
+	# Set RB2D properties on first frame
+	_set_rb2d_properties()
 
 
 func _physics_process(delta: float) -> void:
-	var rotation_value := rotation_degrees
-	_handle_left_flip(flip_force * delta)
+	# Get current rotation angle
+	var current_rotation := rotation_degrees
 	
-	if Input.is_action_pressed("left_flipper"):
-		if rotation_value > target_angle:
-			rotation_value -= flip_force * delta
-		elif rotation_value <= target_angle:
-			rotation_value = target_angle
+	# Rotate when input is detected
+	if Input.is_action_pressed(flip_input_action):
+		current_rotation = move_toward(
+				current_rotation,
+				target_rotation,
+				flip_speed * delta
+		)
 	else:
-		if rotation_value < start_angle:
-			rotation_value += flip_force * delta
-		elif rotation_value >= start_angle:
-			rotation_value = start_angle
+		current_rotation = move_toward(
+				current_rotation,
+				start_rotation,
+				flip_speed * delta
+		)
 	
-	rotation_degrees = rotation_value
+	# Set rotation angle
+	rotation_degrees = current_rotation
 
 
-func _handle_left_flip(rotate_speed: float) -> void:
-	var rotation_value := rotation_degrees
-	
-	if Input.is_action_pressed("left_flipper"):
-		if rotation_value > target_angle:
-			rotation_value -= rotate_speed
-		elif rotation_value <= target_angle:
-			rotation_value = target_angle
+func _set_rb2d_properties() -> void:
+	gravity_scale = 0.0
+	freeze = true
+	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
