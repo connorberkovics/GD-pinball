@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://doir4mnbrla13"]
+
+[ext_resource type="PackedScene" uid="uid://ck6vnlx7f7mnh" path="res://Scenes/pinball_table.tscn" id="1_3dogw"]
+
+[node name="TestScene" type="Node2D" unique_id=361513892]
+
+[node name="PinballTable" parent="." unique_id=538549802 instance=ExtResource("1_3dogw")]
+position = Vector2(0, 256)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1868497339]
+metadata/_edit_lock_ = true

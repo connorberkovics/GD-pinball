@@ -5,13 +5,23 @@
 
 [node name="PinballTable" type="Node2D" unique_id=538549802]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2045938440]
-position = Vector2(0, -319)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2076803]
 
 [node name="LeftFlipper" parent="." unique_id=302824521 instance=ExtResource("1_m4si6")]
-position = Vector2(-192, 0)
-rotation = 0.17453292
+position = Vector2(-140.00002, 249.00003)
+rotation = 0.5235988
+scale = Vector2(0.9999999, 0.9999999)
 
 [node name="RightFlipper" parent="." unique_id=893228446 instance=ExtResource("2_je4ao")]
-position = Vector2(192, 0)
-rotation = -0.17453292
+position = Vector2(140.00002, 249.00003)
+rotation = -0.5235988
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2056117220]
+
+[node name="RightSideColl" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=846387157]
+polygon = PackedVector2Array(140, 249, 308, 196, 308, -324, 0, -324, 0, -360, 344, -360, 344, 360, 140, 360)
+
+[node name="LeftSideColl" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1476241225]
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(140, 249, 308, 196, 308, -324, 0, -324, 0, -360, 344, -360, 344, 360, 140, 360)

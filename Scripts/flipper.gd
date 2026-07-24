@@ -3,8 +3,8 @@ class_name Flipper
 
 
 @export_range(-1.0, 1.0, 2.0) var direction: float = -1.0
-@export var flip_degrees: float = 50.0
-@export var flip_speed: float = 800.0
+@export var flip_degrees: float = 65.0
+@export var flip_speed: float = 1000.0
 @export var flip_input_action: String = ""
 
 @onready var start_rotation := rotation_degrees
